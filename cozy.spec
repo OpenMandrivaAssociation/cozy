@@ -16,6 +16,7 @@ BuildRequires:  python-devel
 BuildRequires:  pkgconfig(pygobject-3.0)
 BuildRequires:  python-setuptools
 BuildRequires:  pkgconfig(gtk+-3.0)
+BuildRequires:  gstreamer1.0-libav
 Requires:       python3dist(pycairo)
 Requires:       python3dist(distro)
 Requires:       python-gstreamer1.0
@@ -29,6 +30,7 @@ Recommends:     %{name}-lang
 Recommends:     gstreamer1.0-plugins-base
 Recommends:     gstreamer1.0-plugins-bad
 Recommends:     gstreamer1.0-plugins-ugly
+Recommends:     gstreamer1.0-libav
 Conflicts:      com.github.geigi.cozy
 Provides:       com.github.geigi.cozy = %{version}
 BuildArch:      noarch
