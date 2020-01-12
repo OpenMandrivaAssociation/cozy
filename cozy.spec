@@ -2,7 +2,7 @@ Name:           cozy
 Version:        0.6.11
 Release:        1
 Summary:        Audio Book Player
-License:        GPL-3
+License:        GPLv3
 Group:          Productivity/Multimedia/Sound/Players
 URL:            https://github.com/geigi
 Source0:        https://github.com/geigi/cozy/archive/%{version}/%{name}-%{version}.tar.gz
