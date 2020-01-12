@@ -20,25 +20,30 @@ Requires:       python3dist(pycairo)
 Requires:       python3dist(distro)
 Requires:       python-gstreamer1.0
 Requires:       python3dist(file-magic)
+# Need to import it 3x
 Requires:       python3-mutagen
 Requires:       python3-peewee
 Requires:       python3-pytaglib
+
 Recommends:     %{name}-lang
-Recommends:     gstreamer-plugins-base
-Recommends:     gstreamer-plugins-good
-Recommends:     gstreamer-plugins-ugly
+Recommends:     gstreamer1.0-plugins-base
+Recommends:     gstreamer1.0-plugins-bad
+Recommends:     gstreamer1.0-plugins-ugly
 Conflicts:      com.github.geigi.cozy
 Provides:       com.github.geigi.cozy = %{version}
 BuildArch:      noarch
-# SECTION test requirements
-BuildRequires:  python3-cairo
-BuildRequires:  python3-gst
-BuildRequires:  python3-magic
+
+# Needed for tests
+BuildRequires:  pkgconfig(py3cairo)
+BuildRequires:  python-gstreamer1.0
+BuildRequires:  python3dist(file-magic)
+#Need import 3x
 BuildRequires:  python3-mutagen
 BuildRequires:  python3-peewee
 BuildRequires:  python3-pytaglib
-BuildRequires:  python3-distro
-# /SECTION
+
+BuildRequires:  python3dist(distro)
+
 
 %description
 Play and organize your audio book collection.
@@ -54,10 +59,10 @@ Play and organize your audio book collection.
 
 %install
 %meson_install
-%suse_update_desktop_file com.github.geigi.cozy
+
 %find_lang com.github.geigi.cozy %{name}.lang
 %fdupes %{buildroot}%{_datadir}
-%fdupes %{buildroot}%{python3_sitelib}
+%fdupes %{buildroot}%{python_sitelib}
 
 %files
 %defattr(0644,root,root,0755)
@@ -69,6 +74,6 @@ Play and organize your audio book collection.
 %{_datadir}/metainfo/com.github.geigi.cozy.appdata.xml
 %{_datadir}/icons/hicolor/*/*/*.??g
 %{_datadir}/com.github.geigi.cozy/
-%{python3_sitelib}/cozy/
+%{python_sitelib}/cozy/
 
 %files lang -f %{name}.lang
